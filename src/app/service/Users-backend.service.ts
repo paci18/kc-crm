@@ -1,27 +1,43 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {catchError, Observable, of, tap} from 'rxjs';
+import {User} from "../user/user";
+import {MessageService} from "./security.service";
 
-export interface User {
-  firstName: string;
-  lastName: string;
-  email: string;
-  username: string
-}
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersBackendService {
+export class BackendService {
 
-  private readonly backendUrl = '/users'
+    private usersUrl = 'http://localhost:8040/user/getUsers'
+  httpOptions = { headers: new HttpHeaders({'Content-Type' : 'application/json'})};
+  constructor(private http: HttpClient,
+              private messageService:MessageService) { }
+    getAll(): Observable<User[]> {
+    return this.http.get<User[]>(this.usersUrl)
+      .pipe(
+        tap(_ =>this.log('utenti trovati')),
+        catchError(this.handleError<User[]>('getAll', []))
+      );
+    }
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
 
-  constructor(private http: HttpClient) { }
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
 
-  getAllUsers(): Observable<Array<User>> {
-    return this.http.get<Array<User>>(this.backendUrl);
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
-
+  /** Log a HeroService message with the MessageService */
+  private log(message: string) {
+    this.messageService.add(`HeroService: ${message}`);
+  }
 
 }

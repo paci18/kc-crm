@@ -1,48 +1,51 @@
-<!--<html>-->
+<html>
 
-<!--<body>-->
-<!--<h1>Welcome admin</h1>-->
+<body>
+<h1>Welcome admin</h1>
 
 
-<!--<button type="button" (click)="getAllUsers()"> All Users</button>-->
-<!--<button *ngIf="!isLoggedIn" type="button" (click)="login()">Log in</button>-->
-<!--<button *ngIf="isLoggedIn" type="button" (click)="logout()">Log out</button>-->
+<button type="button" (click)="listUser()"> All Users</button>
+<button *ngIf="!isLoggedIn" type="button" (click)="login()">Log in</button>
+<button *ngIf="isLoggedIn" type="button" (click)="logout()">Log out</button>
 
-<!--<table mat-table class="mat-elevation-z8">-->
+<!--<table mat-table  class="mat-elevation-z8">-->
 <!--  <ng-container matColumnDef="fistname">-->
 <!--    <th mat-header-cell *matHeaderCellDef> fistname </th>-->
-<!--    &lt;!&ndash;    <td mat-cell *matCellDef= userProfile> {{userProfile.firstName}} </td>&ndash;&gt;-->
+<!--    <td mat-cell *matCellDef= userProfile> {{userProfile}} </td>-->
 <!--  </ng-container>-->
 
 
 <!--  <ng-container matColumnDef="lastname">-->
 <!--    <th mat-header-cell *matHeaderCellDef> lastname </th>-->
-<!--    &lt;!&ndash;    <td mat-cell *matCellDef= userProfile> {{userProfile.lastName}} </td>&ndash;&gt;-->
+<!--      <td mat-cell *matCellDef= userProfile> {{userProfile}} </td>-->
 <!--  </ng-container>-->
 
 
 <!--  <ng-container matColumnDef="email">-->
 <!--    <th mat-header-cell *matHeaderCellDef> email </th>-->
-<!--    &lt;!&ndash;    <td mat-cell *matCellDef=userProfile> {{userProfile.email}} </td>&ndash;&gt;-->
+<!--        <td mat-cell *matCellDef=userProfile> {{userProfile}} </td>-->
 <!--  </ng-container>-->
 <!--  <ng-container matColumnDef="username">-->
 <!--    <th mat-header-cell *matHeaderCellDef> username </th>-->
-<!--    &lt;!&ndash;   <td mat-cell *matCellDef=userProfile> {{userProfile.username}} </td>&ndash;&gt;&ndash;&gt;-->
+<!-- <td mat-cell *matCellDef=userProfile> {{userProfile}} </td>-->
 <!--  </ng-container>-->
 
 <!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
 <!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
 <!--</table>-->
+</body>
+</html>
+
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="utf-8">-->
+<!--  <title>AngularFrontend</title>-->
+<!--  <base href="/">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--  <link rel="icon" type="image/x-icon" href="favicon.ico">-->
+<!--</head>-->
+<!--<body>-->
+<!--<app-root></app-root>-->
 <!--</body>-->
 <!--</html>-->
-
-<html>
-
-<h1>Benvenuto nella login</h1>
-
-
-<button type="button" (click)="logout()">Logout</button>
-
-
-
-</html>

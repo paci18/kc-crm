@@ -1,9 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
-import {User, UsersBackendService} from "./service/Users-backend.service";
+import { BackendService} from "./service/Users-backend.service";
 import {Router} from "@angular/router";
 import {AdminViewComponent} from "./admin-view/admin-view.component";
+import {HttpClient} from "@angular/common/http";
+import * as http from "http";
 ;
 
 
@@ -13,7 +15,7 @@ import {AdminViewComponent} from "./admin-view/admin-view.component";
 templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit {
-  users: Array<User> = [];
+  users = {};
   displayedColumns: string[] = ['firstname', 'lastname', 'email', 'username'];
   public isLoggedIn = false;
   public role: boolean = false;
@@ -23,7 +25,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private readonly keycloak: KeycloakService,
-    private router: Router
+    private http: HttpClient
   ) {
 
   }
@@ -49,8 +51,8 @@ export class AppComponent implements OnInit {
 
 
 
-public hello(){
-    console.log("il metodo funziona correttamente")
+public listUser(){
+    this.http.get('/getUsers').subscribe(data => this.users = data);
 }
 
 }

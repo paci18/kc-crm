@@ -11,6 +11,7 @@ import {AdminViewComponent} from "./admin-view/admin-view.component";
 
 
 
+
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -31,7 +32,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   declarations: [AppComponent, AccessDeniedComponent, AdminViewComponent],
-  imports: [AppRoutingModule, BrowserModule, KeycloakAngularModule, FormsModule, BrowserAnimationsModule, HttpClientModule],
+  imports: [AppRoutingModule,
+    BrowserModule,
+    KeycloakAngularModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    BrowserAnimationsModule
+  ],
   providers: [
     {
       provide: APP_INITIALIZER,

@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {UsersBackendService} from "../service/Users-backend.service";
+import {BackendService} from "../service/Users-backend.service";
 
 @Component({
   selector: 'app-admin-view',
@@ -8,12 +8,10 @@ import {UsersBackendService} from "../service/Users-backend.service";
 })
 export class AdminViewComponent implements OnInit {
 
-  constructor(private router: Router,  private backend: UsersBackendService,) {
+  constructor(private router: Router,  private backend: BackendService,) {
   }
   ngOnInit(): void {
   }
-  public  getAllUsers(){
-    this.backend.getAllUsers().subscribe(
-    )}
+
 
 }
