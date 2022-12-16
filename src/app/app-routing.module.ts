@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AuthGuard} from "./guards/auth.guard";
 import {AccessDeniedComponent} from "./access-denied/access-denied.component";
-import {AdminViewComponent} from "./admin-view/admin-view.component";
-import {BackendService} from "./service/Users-backend.service";
+import {ListUsersComponent} from "./user/listUsersComponent";
+
 
 
 const routes: Routes = [
   {
-        path: 'admin',
-        component: BackendService,
+        path: 'users',
+        component: ListUsersComponent,
         data: {
           roles: ['administrator']
         },

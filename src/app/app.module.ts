@@ -7,7 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {AccessDeniedComponent} from "./access-denied/access-denied.component";
-import {AdminViewComponent} from "./admin-view/admin-view.component";
+import {ListUsersComponent} from "./user/listUsersComponent";
 
 
 
@@ -31,7 +31,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
 }
 
 @NgModule({
-  declarations: [AppComponent, AccessDeniedComponent, AdminViewComponent],
+  declarations: [AppComponent, AccessDeniedComponent,ListUsersComponent],
   imports: [AppRoutingModule,
     BrowserModule,
     KeycloakAngularModule,

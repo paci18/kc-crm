@@ -5,19 +5,45 @@
 <!--      <table class="table table-striped">-->
 <!--        <thead>-->
 <!--        <th>Id</th>-->
-<!--        <th> First Name</th>-->
-<!--        <th> Last Name</th>-->
+<!--        <th> FirstName</th>-->
+<!--        <th> LastName</th>-->
 <!--        <th> Email </th>-->
 <!--        </thead>-->
 <!--        <tbody>-->
-<!--        <tr *ngFor = "let user of users">-->
-<!--          <td> {{ user.firstName}}</td>-->
-<!--          <td> {{ user.lastName}}</td>-->
-<!--          <td> {{ user.email}}</td>-->
-<!--          <td>{{user.username}}</td>-->
-<!--        </tr>-->
+<!--&lt;!&ndash;        <tr *ngFor = "let user of users">&ndash;&gt;-->
+<!--&lt;!&ndash;          <td> {{ user.firstname}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td> {{ user.lastname}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td> {{ user.email}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td>{{user.username}}</td>&ndash;&gt;-->
+<!--     &lt;!&ndash;   </tr>&ndash;&gt;-->
 <!--        </tbody>-->
 <!--      </table>-->
 <!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="panel panel-primary">-->
+<!--  <div class = "panel-heading">-->
+<!--    <h2> Users List</h2>-->
+<!--  </div>-->
+<!--  <div class="panel-body">-->
+<!--    <table class="table table-striped">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th>FirstName</th>-->
+<!--        <th>LastName</th>-->
+<!--        <th>Email</th>-->
+<!--        <th>Username</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor="let user of users | async">-->
+<!--        <td>{{user.firstName}}</td>-->
+<!--        <td>{{user.lastName}}</td>-->
+<!--        <td>{{user.email}}</td>-->
+<!--        <td>{{user.username}}</td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
 <!--  </div>-->
 <!--</div>-->
