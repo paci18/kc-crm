@@ -13,7 +13,7 @@ export class TokenInterceptor implements HttpInterceptor
     const token = this.tokenExtractor.getToken() as string;
     request = request.clone({
       setHeaders: {
-        "Authorization": "Bearer" + authToken
+        "Authorization": "Bearer " + authToken
       }
     });
     return next.handle(request);
