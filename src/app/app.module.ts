@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
-import {AccessDeniedComponent} from "./access-denied/access-denied.component";
+
 import {ListUsersComponent} from "./user/listUsersComponent";
 
 
@@ -17,7 +17,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     keycloak.init({
       config: {
         realm: 'Keycloak-angular-connection',
-        url: 'http://localhost:8080/auth',
+        url: 'http://localhost:8080',
         clientId: 'kc-crm',
       },
       initOptions: {
@@ -31,7 +31,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
 }
 
 @NgModule({
-  declarations: [AppComponent, AccessDeniedComponent,ListUsersComponent],
+  declarations: [AppComponent,ListUsersComponent],
   imports: [AppRoutingModule,
     BrowserModule,
     KeycloakAngularModule,
