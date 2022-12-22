@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile} from 'keycloak-js';
 import {HttpClient} from "@angular/common/http";
-import {User} from "./user/user";
+import {User} from "./user";
 import { Router} from "@angular/router";
-import {UserService} from "./user/user.service";
+import {UserService} from "./user.service";
 
 
 
@@ -14,14 +14,12 @@ import {UserService} from "./user/user.service";
 templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit {
-
-   users : User[] = [];
+    users : User[] = [];
  // displayedColumns: string[] = ['firstname', 'lastname', 'email', 'username'];
   public isLoggedIn = false;
   public role: boolean = false;
 
   public userProfile: KeycloakProfile | null = null;
-  public isTokenExpired = true;
 
   constructor(
     private readonly keycloak: KeycloakService,
@@ -37,8 +35,7 @@ export class AppComponent implements OnInit {
 
 
     if (this.isLoggedIn) {
-      this.isTokenExpired = this.keycloak.isTokenExpired();
-    //  this.token = await this.keycloak.getToken();
+
       this.userProfile = await this.keycloak.loadUserProfile();
 
     }
@@ -52,18 +49,10 @@ export class AppComponent implements OnInit {
     this.keycloak.logout();
   }
 
-
-  public getToken(): Promise<string>
-  {
-    return this.keycloak.getToken()
-  }
-
-//
- public getUsers(){
-//
-   this.userService.getUsers().subscribe(data => {
-    this.users = data;
-     })
+ getUsers(){
+    this.userService.getUsersList()
  }
+
+
 
 }

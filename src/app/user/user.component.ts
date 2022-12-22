@@ -11,9 +11,18 @@
 //   }
 //
 //   ngOnInit() {
-//     this.userService.getUsers().subscribe((data: User[])=> {
-//       console.log(data);
-//       this.users = data;
-//     })
+//     // this.userService.getUsers().subscribe((data: User[])=> {
+//     //   console.log(data);
+//     //   this.users = data;
+//     // })
+//     this.getAllUsers().subscribe(users => {
+//       this.users = users;
+//     });
+//   }
+//
+//   getAllUsers(){
+//     return this.userService.getUsers();
 //   }
 // }
+//
+//

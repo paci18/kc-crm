@@ -2,64 +2,48 @@
 
 <body>
 <h1>Welcome admin</h1>
-<table class="table" style="width: 80%">
-  <button *ngIf="isLoggedIn" type="button" (click)="logout()">Log out</button>
-<tr *ngFor="let user of users">
-<td>
-  {{user.firstname}}
-</td>
-  <td>
-    {{user.lastname}}
-  </td>
-  <td>
-    {{user.email}}
-  </td>
-  <td>
-    {{user.username}}
-  </td>
-<!--<button type="button" (click)="getUsers()"> All Users</button>-->
-<button *ngIf="!isLoggedIn" type="button" (click)="login()">Log in</button>
+<div class ="container">
+  <div class = "card">
+
+<!--    <button type="button" (click)="getUsers()"> All Users</button>-->
+
+    <button *ngIf="!isLoggedIn" type="button" (click)="login()">Log in</button>
+    <button *ngIf="isLoggedIn" type="button" (click)="logout()">Log out</button>
+    <div class = "container">
+      <router-outlet></router-outlet>
+    </div>
+    <div class = "card-body">
+<!--      <table class="table table-striped">-->
+<!--        <thead>-->
+<!--        <th> FirstName</th>-->
+<!--        <th> LastName </th>-->
+<!--        <th> Email </th>-->
+<!--        <th> Username </th>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr *ngFor = "let user of users">-->
+<!--          <td> {{ user.firstName}}</td>-->
+<!--          <td> {{ user.lastName}}</td>-->
+<!--          <td> {{ user.email}}</td>-->
+<!--          <td>{{user.userName}}</td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+    </div>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+      <ul class = "navbar-nav">
+
+      </ul>
+    </nav>
 
 
-<!--<table mat-table  class="mat-elevation-z8">-->
-<!--  <ng-container matColumnDef="fistname">-->
-<!--    <th mat-header-cell *matHeaderCellDef> fistname </th>-->
-<!--    <td mat-cell *matCellDef= userProfile> {{userProfile}} </td>-->
-<!--  </ng-container>-->
+  </div>
+</div>
 
-
-<!--  <ng-container matColumnDef="lastname">-->
-<!--    <th mat-header-cell *matHeaderCellDef> lastname </th>-->
-<!--      <td mat-cell *matCellDef= userProfile> {{userProfile}} </td>-->
-<!--  </ng-container>-->
-
-
-<!--  <ng-container matColumnDef="email">-->
-<!--    <th mat-header-cell *matHeaderCellDef> email </th>-->
-<!--        <td mat-cell *matCellDef=userProfile> {{userProfile}} </td>-->
-<!--  </ng-container>-->
-<!--  <ng-container matColumnDef="username">-->
-<!--    <th mat-header-cell *matHeaderCellDef> username </th>-->
-<!-- <td mat-cell *matCellDef=userProfile> {{userProfile}} </td>-->
-<!--  </ng-container>-->
-
-<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-<!--</table>-->
-</table>
 </body>
 </html>
 
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--  <meta charset="utf-8">-->
-<!--  <title>AngularFrontend</title>-->
-<!--  <base href="/">-->
-<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--  <link rel="icon" type="image/x-icon" href="favicon.ico">-->
-<!--</head>-->
-<!--<body>-->
-<!--<app-root></app-root>-->
-<!--</body>-->
-<!--</html>-->
+
+
+
+

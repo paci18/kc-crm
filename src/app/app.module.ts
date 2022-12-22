@@ -6,9 +6,7 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
-
-import {ListUsersComponent} from "./user/listUsersComponent";
-
+import {UsersListComponent} from "./userlist/UsersList.component";
 
 
 
@@ -31,7 +29,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
 }
 
 @NgModule({
-  declarations: [AppComponent,ListUsersComponent],
+  declarations: [AppComponent, UsersListComponent],
   imports: [AppRoutingModule,
     BrowserModule,
     KeycloakAngularModule,
