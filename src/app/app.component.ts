@@ -4,6 +4,7 @@ import Keycloak, {KeycloakProfile} from 'keycloak-js';
 import {HttpClient} from "@angular/common/http";
 import {User} from "./user";
 import {Observable} from "rxjs";
+import {KcService} from "./keycloak/keycloak.service";
 
 
 @Component({
@@ -25,11 +26,12 @@ export class AppComponent implements OnInit {
   public idToken: string | undefined;
   public idTokenParsed: any;
 
-  public refreshToken: string | undefined;
-  public refreshTokenParsed: any;
 
-  constructor(private httpClient: HttpClient,private readonly keycloakService: KeycloakService,   private  keycloak : Keycloak) {
 
+
+  constructor(private httpClient: HttpClient,private keycloakService: KeycloakService, private kcService : KcService) {
+    this.realm = this.keycloakService.getKeycloakInstance().realm;
+    this.authUrl = this.keycloakService.getKeycloakInstance().authServerUrl;
   }
 
   public async ngOnInit() {
@@ -38,43 +40,43 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
 
-      this.userProfile = await this.keycloak.loadUserProfile();
+      this.userProfile = await this.keycloakService.loadUserProfile();
 
 
     }
   }
 
   public login() {
-    this.keycloak.login();
+    this.keycloakService.login();
   }
 
   public logout() {
-    this.keycloak.logout();
+    this.keycloakService.logout();
   }
 
 
-  public getToken(): Promise<string> {
-    return new Promise<string>((resolve, reject) => {
-      if (this.keycloak.token) {
-        this.keycloak
-          .updateToken(90)
-          .then(() => this.keycloak.token ? resolve(this.keycloak.token) : reject('No token available'))
-          .catch((error: any) => reject(error));
-      } else {
-        reject('Not logged in');
-      }
-    });
-  }
+  // public getToken(): Promise<string> {
+  //   return new Promise<string>((resolve, reject) => {
+  //     if (this.keycloakService.getKeycloakInstance().token) {
+  //       this.keycloak
+  //         .updateToken(90)
+  //         .then(() => this.keycloak.token ? resolve(this.keycloak.token) : reject('No token available'))
+  //         .catch((error: any) => reject(error));
+  //     } else {
+  //       reject('Not logged in');
+  //     }
+  //   });
+  // }
 
 
-  public clearTokens(): void {
-    this.accessToken = undefined;
-    this.accessTokenParsed = null;
-    this.idToken = undefined;
-    this.idTokenParsed = null;
-    this.refreshToken = undefined;
-    this.refreshTokenParsed = null;
-  }
+  // public clearTokens(): void {
+  //   this.accessToken = undefined;
+  //   this.accessTokenParsed = null;
+  //   this.idToken = undefined;
+  //   this.idTokenParsed = null;
+  //   this.refreshToken = undefined;
+  //   this.refreshTokenParsed = null;
+  // }
 
   private getKeycloakOpenIdConfig(): Observable<any> {
     return this.httpClient.get(`${this.authUrl}/realms/${this.realm}/.well-known/openid-configuration`)

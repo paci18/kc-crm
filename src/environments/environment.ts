@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-};
+    serverUrl: 'http://localhost:8050',
+    keycloakUrl: 'https://localhost:8080',
+    keycloakRealm: 'Keycloak-angular-connection',
+    keycloakClientId: 'kc-crm'
+  };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
