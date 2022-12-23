@@ -11,14 +11,14 @@ import {Router} from "@angular/router";
 export class UsersListComponent implements OnInit {
   users : User[] = [];
 
-  constructor(private userService : UserService, private router : Router) {}
+  constructor(private userService : UserService) {}
   ngOnInit() {
     this.getUsers();
   }
 
   private  getUsers(){
     this.userService.getUsersList().subscribe(data => {
-    this.users = data;
-  });
-}
+      this.users = data;
+    });
+  }
 }

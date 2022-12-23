@@ -9,7 +9,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {UsersListComponent} from "./userlist/UsersList.component";
 
 
-
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -24,7 +23,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
        onLoad: 'login-required',
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html'
-      }
+      },
     });
 }
 
