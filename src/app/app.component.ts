@@ -77,9 +77,9 @@ export class AppComponent implements OnInit {
   //   this.refreshToken = undefined;
   //   this.refreshTokenParsed = null;
   // }
-
-  private getKeycloakOpenIdConfig(): Observable<any> {
-    return this.httpClient.get(`${this.authUrl}/realms/${this.realm}/.well-known/openid-configuration`)
-  }
+  //
+  // private getKeycloakOpenIdConfig(): Observable<any> {
+  //   return this.httpClient.get(`${this.authUrl}/realms/${this.realm}/.well-known/openid-configuration`)
+  // }
 
 }
