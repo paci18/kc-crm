@@ -65,15 +65,13 @@
           "configurations": {
             "production": {
               "browserTarget": "kc-crm:build:production",
-
             },
             "development": {
               "browserTarget": "kc-crm:build:development",
-              "port": 5000
+              "port": 4300
             }
           },
           "defaultConfiguration": "development"
-
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
