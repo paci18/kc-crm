@@ -6,28 +6,10 @@
 <div class ="container">
   <div class = "card">
 
-    <!--    <button type="button" (click)="getUsers()"> All Users</button>-->
 
     <button *ngIf="!isLoggedIn" type="button" (click)="login()">Log in</button>
     <button *ngIf="isLoggedIn" type="button" (click)="logout()">Log out</button>
-<!--     <div class = "card-body">-->
-<!--            <table class="table table-striped">-->
-<!--              <thead>-->
-<!--              <th> FirstName</th>-->
-<!--              <th> LastName </th>-->
-<!--              <th> Email </th>-->
-<!--              <th> Username </th>-->
-<!--              </thead>-->
-<!--              <tbody>-->
-<!--              <tr *ngFor = "let user of users">-->
-<!--                <td> {{ user.firstName}}</td>-->
-<!--                <td> {{ user.lastName}}</td>-->
-<!--                <td> {{ user.email}}</td>-->
-<!--                <td>{{user.userName}}</td>-->
-<!--              </tr>-->
-<!--              </tbody>-->
-<!--            </table>-->
-<!--    </div>-->
+
 <app-user-list></app-user-list>
 
   </div>

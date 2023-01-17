@@ -17,7 +17,6 @@ export class KcService {
     };
     this.keycloak = new  Keycloak(config);
   }
-
   public initialize(): Promise<boolean> {
     const options: KeycloakInitOptions = {
       onLoad: 'login-required',
@@ -25,7 +24,6 @@ export class KcService {
     };
     return this.keycloak.init(options);
   }
-
   public getToken(): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       if (this.keycloak.token) {
@@ -38,11 +36,7 @@ export class KcService {
       }
     });
   }
-
   public logout(): void {
     this.keycloak.logout();
   }
-
-
-
 }

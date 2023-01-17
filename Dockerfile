@@ -7,7 +7,7 @@ COPY package*.json ./
 
 RUN npm install -g @angular/cli && \
     npm install && \
-    ng build 
+    ng build
 COPY . .
 
 
@@ -22,7 +22,7 @@ COPY --from=build /usr/src/app/dist/kc-crm /usr/share/nginx/html/crm
 COPY /nginx/crm.conf /etc/nginx/conf.d/default.conf
 # Exposing a port, here it means that inside the container
 # the app will be using Port 80 while running
-EXPOSE 4300
+EXPOSE 5000
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
 
